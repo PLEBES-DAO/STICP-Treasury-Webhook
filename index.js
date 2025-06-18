@@ -1,7 +1,7 @@
 import "dotenv/config"; // Load environment variables from .env
 import { createSTCICPDEPOSITS } from "../sticp-plebes/ic/STICP/index.js";
 import { createicrc1Actor } from "./ic/icrc1/index.js";
-import { ICP_CANISTER } from "./functions/constants.js";
+import { ICP_CANISTER,STICP_CANISTER } from "./functions/constants.js";
 import { Ed25519KeyIdentity } from "@dfinity/identity";
 import { toDefaultSub, defaultIcrcTransferHex, reverseFormatIcrcBalance } from "./functions/utils.js";
 
@@ -22,7 +22,7 @@ const stICPDepositsActor = createSTCICPDEPOSITS({
 const icpActor = createicrc1Actor(ICP_CANISTER, {
   agentOptions: { identity: existingIdentity },
 });
-const stICPActor = createicrc1Actor("qfr6e-biaaa-aaaak-qafuq-cai", {
+const stICPActor = createicrc1Actor(STICP_CANISTER, {
   agentOptions: { identity: existingIdentity },
 });
 
